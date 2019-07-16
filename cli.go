@@ -4,6 +4,8 @@ import (
 	"flag"
 	"fmt"
 	"io"
+
+	"github.com/weppos/publicsuffix-go/publicsuffix"
 )
 
 // Exit codes are int values that represent an exit code for a particular error.
@@ -41,6 +43,21 @@ func (cli *CLI) Run(args []string) int {
 		fmt.Fprintf(cli.errStream, "%s version %s\n", Name, Version)
 		return ExitCodeOK
 	}
+
+	parsedArgs := flags.Args()
+	if len(parsedArgs) != 1 {
+		fmt.Fprintln(cli.errStream, "Invalid argument: Specify domain.")
+		return ExitCodeError
+	}
+
+	argDomain := parsedArgs[0]
+
+	nakedDomain, err := publicsuffix.Domain(argDomain)
+	if err != nil {
+		return ExitCodeError
+	}
+
+	fmt.Println(nakedDomain)
 
 	return ExitCodeOK
 }
