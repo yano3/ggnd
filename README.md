@@ -1,10 +1,14 @@
 # ggnd
 
-
-
 ## Description
 
+Get naked domain from domain.
+
 ## Usage
+
+```bash
+$ ggnd shop.yano3.info
+```
 
 ## Install
 
