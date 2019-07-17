@@ -10,11 +10,22 @@ Get naked domain from domain.
 $ ggnd shop.yano3.info
 ```
 
-## Install
+## Installation
 
-To install, use `go get`:
+### macOS
 
-```bash
+If you use [Homebrew](https://brew.sh):
+
+```console
+$ brew tap yano3/tap
+$ brew install ggnd
+```
+
+### Other platforms
+
+Download binary from [releases page](https://github.com/yano3/ggnd/releases) or use `go get` command.
+
+```console
 $ go get -d github.com/yano3/ggnd
 ```
 
